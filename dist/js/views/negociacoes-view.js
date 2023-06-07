@@ -1,7 +1,5 @@
-export class NegociacaoView {
-    constructor(seletor) {
-        this.elemento = document.querySelector(seletor);
-    }
+import { View } from "./view.js";
+export class NegociacaoView extends View {
     template(model) {
         return ` 
     <table class="table table-hover table-bordered">
@@ -15,7 +13,6 @@ export class NegociacaoView {
         <tbody>
         ${model
             .listarNegociacoes().map((negociacao) => {
-            console.log(negociacao);
             return `
                 <tr>
                     <td>${new Intl.DateTimeFormat().format(negociacao.data)}</td>
